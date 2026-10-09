@@ -1,0 +1,8 @@
+{
+  "name": "CAS Pro Affan terbaru",
+  "description": "Generator Perangkat Pembelajaran Otomatis Kurikulum Merdeka (RPPM, Asesmen \u0026 Rubrik, LKPD) dengan AI Terintegrasi untuk Guru Indonesia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

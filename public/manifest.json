@@ -1,0 +1,25 @@
+{
+  "name": "Cipta-Ajar-Suit-Pro",
+  "short_name": "Cipta-Ajar-Suit-Pro",
+  "description": "Generator Perangkat Pembelajaran Otomatis Kurikulum Merdeka (RPPM, Asesmen & Rubrik, LKPD) dengan AI Terintegrasi untuk Guru Indonesia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0369a1",
+  "orientation": "any",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

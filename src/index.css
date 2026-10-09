@@ -1,0 +1,1618 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased selection:bg-emerald-100 selection:text-emerald-900;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Document Paper Styling */
+.document-paper {
+  background: #ffffff;
+  color: #1e293b;
+  font-family: 'Times New Roman', 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', 'Scheherazade New', 'Geeza Pro', Times, serif, system-ui;
+  line-height: 1.6;
+}
+
+/* Arabic / Huruf Hijaiyah Typography Enhancements */
+.arabic-hijaiyah,
+.document-paper [data-arabic="true"],
+.document-paper [lang="ar"] {
+  font-family: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', 'Scheherazade New', 'Geeza Pro', 'Times New Roman', serif;
+  font-size: 1.3em;
+  line-height: 1.9;
+  font-weight: 500;
+  display: inline-block;
+  direction: rtl;
+  unicode-bidi: isolate;
+  padding: 0 3px;
+  vertical-align: baseline;
+}
+
+.document-paper .arabic-large {
+  font-size: 1.5em;
+  line-height: 2.1;
+  font-weight: 600;
+}
+
+.document-paper h1 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.document-paper h1 + h3,
+.document-paper h1 + h2,
+.document-paper .doc-subtitle {
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #0f172a;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  line-height: 1.3;
+}
+
+.document-paper h2 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+  color: #0f172a;
+  border-bottom: 1.5px solid #0f172a;
+  padding-bottom: 0.2rem;
+}
+
+.document-paper h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.85rem;
+  margin-bottom: 0.4rem;
+  color: #1e293b;
+}
+
+.document-paper h4 {
+  font-size: 0.94rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.35rem;
+  color: #334155;
+}
+
+.document-paper p {
+  margin-bottom: 0.65rem;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.document-paper ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  text-align: justify;
+}
+
+.document-paper ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  text-align: justify;
+}
+
+.document-paper li {
+  margin-bottom: 0.25rem;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.document-paper blockquote {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Standard Content Tables (Asesmen, Rubrik, Kisi-Kisi, Pengamatan LKPD) */
+.document-paper table {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-collapse: collapse !important;
+  margin-top: 0.85rem !important;
+  margin-bottom: 1.25rem !important;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  box-sizing: border-box !important;
+}
+
+.document-paper table:not(.identity-table):not(.signature-table) {
+  table-layout: fixed !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+.document-paper table:not(.identity-table):not(.signature-table) th,
+.document-paper table:not(.identity-table):not(.signature-table) td {
+  border: 1px solid #334155 !important;
+  padding: 5px 8px !important;
+  vertical-align: top !important;
+  text-align: left !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  hyphens: auto;
+  box-sizing: border-box !important;
+}
+
+.document-paper table:not(.identity-table):not(.signature-table) th {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  font-size: 0.84rem !important;
+  vertical-align: middle !important;
+  padding: 6px 6px !important;
+}
+
+/* Center-align number column in specific multi-column assessment/rubric tables ONLY */
+.document-paper table.rubric-table th:first-child,
+.document-paper table.rubric-table td:first-child,
+.document-paper table.kisi-kisi-table th:first-child,
+.document-paper table.kisi-kisi-table td:first-child,
+.document-paper table.benar-salah-table th:first-child,
+.document-paper table.benar-salah-table td:first-child,
+.document-paper table.penskoran-table th:first-child,
+.document-paper table.penskoran-table td:first-child,
+.document-paper table[data-rubric="true"] th:first-child,
+.document-paper table[data-rubric="true"] td:first-child,
+.document-paper table[data-kisi="true"] th:first-child,
+.document-paper table[data-kisi="true"] td:first-child,
+.document-paper table[data-benar-salah="true"] th:first-child,
+.document-paper table[data-benar-salah="true"] td:first-child,
+.document-paper table[data-penskoran="true"] th:first-child,
+.document-paper table[data-penskoran="true"] td:first-child {
+  text-align: center !important;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
+
+/* Zebra subtle alternating rows for readability */
+.document-paper table:not(.identity-table):not(.signature-table) tbody tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+/* Rubric Assessment Tables & Multi-Column Evaluation Tables: Formatted strictly to A4 Paper Width */
+.document-paper table.rubric-table,
+.document-paper table[data-rubric="true"],
+.document-paper table[data-columns="5"],
+.document-paper table[data-columns="6"],
+.document-paper table[data-columns="7"] {
+  font-size: 0.76rem !important;
+  line-height: 1.35 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+  box-sizing: border-box !important;
+}
+
+.document-paper table.rubric-table th,
+.document-paper table.rubric-table td,
+.document-paper table[data-rubric="true"] th,
+.document-paper table[data-rubric="true"] td,
+.document-paper table[data-columns="5"] th,
+.document-paper table[data-columns="5"] td,
+.document-paper table[data-columns="6"] th,
+.document-paper table[data-columns="6"] td,
+.document-paper table[data-columns="7"] th,
+.document-paper table[data-columns="7"] td {
+  padding: 5px 5.5px !important;
+  font-size: 0.76rem !important;
+  line-height: 1.35 !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  hyphens: none !important;
+  vertical-align: top !important;
+  box-sizing: border-box !important;
+}
+
+.document-paper table.rubric-table th,
+.document-paper table[data-rubric="true"] th {
+  font-size: 0.77rem !important;
+  font-weight: 700 !important;
+  padding: 5px 4px !important;
+  background-color: #f1f5f9 !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  border: 1px solid #334155 !important;
+}
+
+/* Column width proportions for 6-column Rubric Tables (No, Aspek Penilaian, 4 Rubric Levels) matching image 2 */
+.document-paper table.rubric-table[data-columns="6"] th:first-child,
+.document-paper table.rubric-table[data-columns="6"] td:first-child,
+.document-paper table[data-rubric="true"][data-columns="6"] th:first-child,
+.document-paper table[data-rubric="true"][data-columns="6"] td:first-child,
+.document-paper table[data-columns="6"] th:first-child,
+.document-paper table[data-columns="6"] td:first-child {
+  width: 5% !important;
+  text-align: center !important;
+  font-weight: 600 !important;
+}
+.document-paper table.rubric-table[data-columns="6"] th:nth-child(2),
+.document-paper table.rubric-table[data-columns="6"] td:nth-child(2),
+.document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(2),
+.document-paper table[data-rubric="true"][data-columns="6"] td:nth-child(2),
+.document-paper table[data-columns="6"] th:nth-child(2),
+.document-paper table[data-columns="6"] td:nth-child(2) {
+  width: 23% !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+}
+.document-paper table.rubric-table[data-columns="6"] th:nth-child(3),
+.document-paper table.rubric-table[data-columns="6"] td:nth-child(3),
+.document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(3),
+.document-paper table[data-rubric="true"][data-columns="6"] td:nth-child(3),
+.document-paper table[data-columns="6"] th:nth-child(3),
+.document-paper table[data-columns="6"] td:nth-child(3),
+.document-paper table.rubric-table[data-columns="6"] th:nth-child(4),
+.document-paper table.rubric-table[data-columns="6"] td:nth-child(4),
+.document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(4),
+.document-paper table[data-rubric="true"][data-columns="6"] td:nth-child(4),
+.document-paper table[data-columns="6"] th:nth-child(4),
+.document-paper table[data-columns="6"] td:nth-child(4),
+.document-paper table.rubric-table[data-columns="6"] th:nth-child(5),
+.document-paper table.rubric-table[data-columns="6"] td:nth-child(5),
+.document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(5),
+.document-paper table[data-rubric="true"][data-columns="6"] td:nth-child(5),
+.document-paper table[data-columns="6"] th:nth-child(5),
+.document-paper table[data-columns="6"] td:nth-child(5),
+.document-paper table.rubric-table[data-columns="6"] th:nth-child(6),
+.document-paper table.rubric-table[data-columns="6"] td:nth-child(6),
+.document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(6),
+.document-paper table[data-rubric="true"][data-columns="6"] td:nth-child(6),
+.document-paper table[data-columns="6"] th:nth-child(6),
+.document-paper table[data-columns="6"] td:nth-child(6) {
+  width: 18% !important;
+  text-align: left !important;
+}
+
+.document-paper table.rubric-table[data-columns="6"] th:nth-child(3),
+.document-paper table.rubric-table[data-columns="6"] th:nth-child(4),
+.document-paper table.rubric-table[data-columns="6"] th:nth-child(5),
+.document-paper table.rubric-table[data-columns="6"] th:nth-child(6),
+.document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(3),
+.document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(4),
+.document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(5),
+.document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(6) {
+  text-align: center !important;
+}
+
+/* Column width proportions for 7-column Rubric Tables */
+.document-paper table[data-columns="7"] th:first-child,
+.document-paper table[data-columns="7"] td:first-child {
+  width: 4.5% !important;
+}
+.document-paper table[data-columns="7"] th:nth-child(2),
+.document-paper table[data-columns="7"] td:nth-child(2) {
+  width: 19% !important;
+}
+.document-paper table[data-columns="7"] th:nth-child(3),
+.document-paper table[data-columns="7"] td:nth-child(3) {
+  width: 20.5% !important;
+}
+.document-paper table[data-columns="7"] th:nth-child(4),
+.document-paper table[data-columns="7"] td:nth-child(4),
+.document-paper table[data-columns="7"] th:nth-child(5),
+.document-paper table[data-columns="7"] td:nth-child(5),
+.document-paper table[data-columns="7"] th:nth-child(6),
+.document-paper table[data-columns="7"] td:nth-child(6),
+.document-paper table[data-columns="7"] th:nth-child(7),
+.document-paper table[data-columns="7"] td:nth-child(7) {
+  width: 14% !important;
+}
+
+/* Column width proportions for 5-column Rubric Tables */
+.document-paper table[data-columns="5"] th:first-child,
+.document-paper table[data-columns="5"] td:first-child {
+  width: 5% !important;
+}
+.document-paper table[data-columns="5"] th:nth-child(2),
+.document-paper table[data-columns="5"] td:nth-child(2) {
+  width: 27% !important;
+}
+.document-paper table[data-columns="5"] th:nth-child(3),
+.document-paper table[data-columns="5"] td:nth-child(3),
+.document-paper table[data-columns="5"] th:nth-child(4),
+.document-paper table[data-columns="5"] td:nth-child(4),
+.document-paper table[data-columns="5"] th:nth-child(5),
+.document-paper table[data-columns="5"] td:nth-child(5) {
+  width: 22.6% !important;
+}
+
+/* =========================================================
+   Kisi-Kisi Penulisan Soal Asesmen Table Styling
+   ========================================================= */
+.document-paper .table-wrapper {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+  clear: both;
+}
+
+.document-paper table.kisi-kisi-table,
+.document-paper table[data-kisi="true"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+  border: 1.5px solid #334155 !important;
+  border-bottom: 2px solid #1e293b !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+  font-size: 0.77rem !important;
+  line-height: 1.35 !important;
+}
+
+.document-paper table.kisi-kisi-table th,
+.document-paper table[data-kisi="true"] th {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  font-size: 0.78rem !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  padding: 5px 4px !important;
+  border: 1px solid #334155 !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  hyphens: none !important;
+}
+
+.document-paper table.kisi-kisi-table td,
+.document-paper table[data-kisi="true"] td {
+  padding: 5px 5.5px !important;
+  font-size: 0.76rem !important;
+  line-height: 1.35 !important;
+  border: 1px solid #cbd5e1 !important;
+  vertical-align: top !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  hyphens: none !important;
+  white-space: normal !important;
+}
+
+/* Ensure the bottom-most table row always has a crisp, well-defined bottom border */
+.document-paper table.kisi-kisi-table tbody tr:last-child td,
+.document-paper table[data-kisi="true"] tbody tr:last-child td,
+.document-paper table.content-table tbody tr:last-child td {
+  border-bottom: 2px solid #1e293b !important;
+}
+
+.document-paper table.kisi-kisi-table tbody tr:nth-child(even) td,
+.document-paper table[data-kisi="true"] tbody tr:nth-child(even) td {
+  background-color: #f8fafc !important;
+}
+
+/* 7-column Kisi-Kisi Table Proportions:
+   1: No (4.5%)
+   2: Capaian Pembelajaran / Elemen (23%)
+   3: Materi Pokok (16%)
+   4: Indikator Soal (34.5%)
+   5: Level Kognitif (9%)
+   6: Bentuk Soal (7.5%)
+   7: No. Soal (5.5%)
+   Total = 100% */
+.document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(1),
+.document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(1),
+.document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(1),
+.document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(1),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) th:nth-child(1),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) td:nth-child(1) {
+  width: 4.5% !important;
+  text-align: center !important;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  font-weight: 600 !important;
+  vertical-align: top !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(2),
+.document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(2),
+.document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(2),
+.document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(2),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) th:nth-child(2),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) td:nth-child(2) {
+  width: 23% !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(3),
+.document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(3),
+.document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(3),
+.document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(3),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) th:nth-child(3),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) td:nth-child(3) {
+  width: 16% !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(4),
+.document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(4),
+.document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(4),
+.document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(4),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) th:nth-child(4),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) td:nth-child(4) {
+  width: 34.5% !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(5),
+.document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(5),
+.document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(5),
+.document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(5),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) th:nth-child(5),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) td:nth-child(5) {
+  width: 9% !important;
+  text-align: center !important;
+  vertical-align: top !important;
+  font-weight: 600 !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(6),
+.document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(6),
+.document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(6),
+.document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(6),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) th:nth-child(6),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) td:nth-child(6) {
+  width: 7.5% !important;
+  text-align: center !important;
+  vertical-align: top !important;
+  font-weight: 600 !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(7),
+.document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(7),
+.document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(7),
+.document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(7),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) th:nth-child(7),
+.document-paper table.kisi-kisi-table:not([data-columns="6"]) td:nth-child(7) {
+  width: 5.5% !important;
+  text-align: center !important;
+  vertical-align: top !important;
+  font-weight: 700 !important;
+  color: #1e40af !important;
+}
+
+/* 6-column Kisi-Kisi Table Proportions:
+   1: No (4.5%)
+   2: Capaian Pembelajaran / Materi (26%)
+   3: Indikator Soal (43%)
+   4: Level Kognitif (10.5%)
+   5: Bentuk Soal (9%)
+   6: No. Soal (7%)
+   Total = 100% */
+.document-paper table.kisi-kisi-table[data-columns="6"] th:nth-child(1),
+.document-paper table.kisi-kisi-table[data-columns="6"] td:nth-child(1),
+.document-paper table[data-kisi="true"][data-columns="6"] th:nth-child(1),
+.document-paper table[data-kisi="true"][data-columns="6"] td:nth-child(1) {
+  width: 4.5% !important;
+  text-align: center !important;
+  vertical-align: top !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="6"] th:nth-child(2),
+.document-paper table.kisi-kisi-table[data-columns="6"] td:nth-child(2),
+.document-paper table[data-kisi="true"][data-columns="6"] th:nth-child(2),
+.document-paper table[data-kisi="true"][data-columns="6"] td:nth-child(2) {
+  width: 26% !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="6"] th:nth-child(3),
+.document-paper table.kisi-kisi-table[data-columns="6"] td:nth-child(3),
+.document-paper table[data-kisi="true"][data-columns="6"] th:nth-child(3),
+.document-paper table[data-kisi="true"][data-columns="6"] td:nth-child(3) {
+  width: 43% !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="6"] th:nth-child(4),
+.document-paper table.kisi-kisi-table[data-columns="6"] td:nth-child(4),
+.document-paper table[data-kisi="true"][data-columns="6"] th:nth-child(4),
+.document-paper table[data-kisi="true"][data-columns="6"] td:nth-child(4) {
+  width: 10.5% !important;
+  text-align: center !important;
+  vertical-align: top !important;
+  font-weight: 600 !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="6"] th:nth-child(5),
+.document-paper table.kisi-kisi-table[data-columns="6"] td:nth-child(5),
+.document-paper table[data-kisi="true"][data-columns="6"] th:nth-child(5),
+.document-paper table[data-kisi="true"][data-columns="6"] td:nth-child(5) {
+  width: 9% !important;
+  text-align: center !important;
+  vertical-align: top !important;
+  font-weight: 600 !important;
+}
+
+.document-paper table.kisi-kisi-table[data-columns="6"] th:nth-child(6),
+.document-paper table.kisi-kisi-table[data-columns="6"] td:nth-child(6),
+.document-paper table[data-kisi="true"][data-columns="6"] th:nth-child(6),
+.document-paper table[data-kisi="true"][data-columns="6"] td:nth-child(6) {
+  width: 7% !important;
+  text-align: center !important;
+  vertical-align: top !important;
+  font-weight: 700 !important;
+}
+
+/* Borderless Signature Table (Indonesian official school format, matching image 8.png) */
+.document-paper table.signature-table,
+.document-paper table[data-signature="true"],
+.document-paper .signature-container table,
+.document-paper .signature-locked-section table {
+  border: none !important;
+  border-width: 0 !important;
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.document-paper table.signature-table thead,
+.document-paper table[data-signature="true"] thead,
+.document-paper .signature-container table thead,
+.document-paper .signature-locked-section table thead {
+  display: table-row-group !important;
+  border: none !important;
+  border-width: 0 !important;
+  background-color: transparent !important;
+}
+
+.document-paper table.signature-table tr,
+/* =========================================================
+   Tabel Tanda Tangan Resmi (2 Kolom Borderless - Universal Tanpa Garis)
+   ========================================================= */
+.document-paper table.signature-table,
+.document-paper table[data-signature="true"],
+.document-paper .signature-container table,
+.document-paper .signature-locked-section table {
+  border: none !important;
+  border-width: 0 !important;
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1.25rem !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.document-paper table.signature-table *,
+.document-paper table[data-signature="true"] *,
+.document-paper .signature-container table *,
+.document-paper .signature-locked-section table *,
+.document-paper table.signature-table tr,
+.document-paper table.signature-table th,
+.document-paper table.signature-table td,
+.document-paper table[data-signature="true"] tr,
+.document-paper table[data-signature="true"] th,
+.document-paper table[data-signature="true"] td,
+.document-paper .signature-container tr,
+.document-paper .signature-container th,
+.document-paper .signature-container td,
+.document-paper .signature-locked-section tr,
+.document-paper .signature-locked-section th,
+.document-paper .signature-locked-section td {
+  border: none !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.document-paper table.signature-table th,
+.document-paper table.signature-table td,
+.document-paper table[data-signature="true"] th,
+.document-paper table[data-signature="true"] td,
+.document-paper .signature-container table th,
+.document-paper .signature-container table td,
+.document-paper .signature-locked-section table th,
+.document-paper .signature-locked-section table td {
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  background-color: transparent !important;
+  padding: 2px 4px !important;
+  vertical-align: top !important;
+  text-align: left !important;
+  font-weight: normal !important;
+  font-size: 0.95rem !important;
+  line-height: 1.45 !important;
+}
+
+.document-paper table.signature-table th:first-child,
+.document-paper table.signature-table td:first-child,
+.document-paper table[data-signature="true"] th:first-child,
+.document-paper table[data-signature="true"] td:first-child,
+.document-paper .signature-container td:first-child,
+.document-paper .signature-container th:first-child,
+.document-paper .signature-locked-section td:first-child,
+.document-paper .signature-locked-section th:first-child {
+  width: 50% !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  padding-right: 1rem !important;
+}
+
+.document-paper table.signature-table th:last-child,
+.document-paper table.signature-table td:last-child,
+.document-paper table[data-signature="true"] th:last-child,
+.document-paper table[data-signature="true"] td:last-child,
+.document-paper .signature-container td:last-child,
+.document-paper .signature-container th:last-child,
+.document-paper .signature-locked-section td:last-child,
+.document-paper .signature-locked-section th:last-child {
+  width: 50% !important;
+  text-align: left !important;
+  padding-left: 2.25rem !important;
+  padding-right: 0 !important;
+}
+
+.document-paper table.signature-table strong,
+.document-paper table[data-signature="true"] strong,
+.document-paper .signature-container strong,
+.document-paper .signature-locked-section strong {
+  font-weight: 700 !important;
+}
+
+/* Lembar Naskah Soal Peserta Didik (Halaman Baru Setelah Tanda Tangan) */
+.naskah-soal-page-section {
+  page-break-before: always;
+  break-before: page;
+}
+
+/* Tabel Soal Benar / Salah (4 kolom: No, Pernyataan, Benar, Salah) */
+.document-paper table.benar-salah-table,
+.document-paper table[data-benar-salah="true"] {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-top: 0.6rem !important;
+  margin-bottom: 1rem !important;
+  font-size: 0.88rem !important;
+  table-layout: fixed !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.document-paper table.benar-salah-table th,
+.document-paper table[data-benar-salah="true"] th {
+  background-color: #f1f5f9 !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  border: 1px solid #334155 !important;
+  padding: 6px 8px !important;
+}
+
+.document-paper table.benar-salah-table td,
+.document-paper table[data-benar-salah="true"] td {
+  border: 1px solid #334155 !important;
+  padding: 6px 8px !important;
+  vertical-align: top !important;
+  line-height: 1.45 !important;
+}
+
+/* Kolom No */
+.document-paper table.benar-salah-table th:nth-child(1),
+.document-paper table.benar-salah-table td:nth-child(1),
+.document-paper table[data-benar-salah="true"] th:nth-child(1),
+.document-paper table[data-benar-salah="true"] td:nth-child(1) {
+  text-align: center !important;
+}
+
+/* Kolom Benar & Salah */
+.document-paper table.benar-salah-table th:nth-child(3),
+.document-paper table.benar-salah-table td:nth-child(3),
+.document-paper table.benar-salah-table th:nth-child(4),
+.document-paper table.benar-salah-table td:nth-child(4),
+.document-paper table[data-benar-salah="true"] th:nth-child(3),
+.document-paper table[data-benar-salah="true"] td:nth-child(3),
+.document-paper table[data-benar-salah="true"] th:nth-child(4),
+.document-paper table[data-benar-salah="true"] td:nth-child(4) {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+/* =========================================================
+   Tabel Soal Menjodohkan (Matching Table: 2 Kolom Seimbang 50% - 50%)
+   ========================================================= */
+.document-paper table.matching-table,
+.document-paper table[data-matching="true"],
+.document-paper table[data-columns="2"]:not(.signature-table):not([data-signature="true"]):not(.identity-table):not([data-identity="true"]) {
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+  margin-top: 0.6rem !important;
+  margin-bottom: 1rem !important;
+  font-size: 0.88rem !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  box-sizing: border-box !important;
+}
+
+.document-paper table.matching-table th,
+.document-paper table[data-matching="true"] th,
+.document-paper table[data-columns="2"]:not(.signature-table):not([data-signature="true"]):not(.identity-table):not([data-identity="true"]) th {
+  background-color: #f1f5f9 !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  border: 1px solid #334155 !important;
+  padding: 6px 10px !important;
+  box-sizing: border-box !important;
+}
+
+.document-paper table.matching-table td,
+.document-paper table[data-matching="true"] td,
+.document-paper table[data-columns="2"]:not(.signature-table):not([data-signature="true"]):not(.identity-table):not([data-identity="true"]) td {
+  border: 1px solid #334155 !important;
+  padding: 6px 10px !important;
+  vertical-align: top !important;
+  line-height: 1.45 !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  box-sizing: border-box !important;
+}
+
+/* Kolom Kiri: Premis (Pernyataan / Masalah) - Tepat 50% Lebar Seimbang Universal */
+.document-paper table.matching-table th:first-child,
+.document-paper table.matching-table td:first-child,
+.document-paper table[data-matching="true"] th:first-child,
+.document-paper table[data-matching="true"] td:first-child,
+.document-paper table[data-columns="2"]:not(.identity-table):not(.signature-table):not([data-identity="true"]) th:first-child,
+.document-paper table[data-columns="2"]:not(.identity-table):not(.signature-table):not([data-identity="true"]) td:first-child {
+  width: 50% !important;
+  min-width: 140px !important;
+  max-width: 50% !important;
+  text-align: left !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* Kolom Kanan: Pilihan Jawaban (Opsi) - Tepat 50% Lebar Seimbang Universal */
+.document-paper table.matching-table th:nth-child(2),
+.document-paper table.matching-table td:nth-child(2),
+.document-paper table[data-matching="true"] th:nth-child(2),
+.document-paper table[data-matching="true"] td:nth-child(2),
+.document-paper table[data-columns="2"]:not(.identity-table):not(.signature-table):not([data-identity="true"]) th:nth-child(2),
+.document-paper table[data-columns="2"]:not(.identity-table):not(.signature-table):not([data-identity="true"]) td:nth-child(2) {
+  width: 50% !important;
+  min-width: 140px !important;
+  max-width: 50% !important;
+  text-align: left !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* Borderless Identity Table (matching official format in images 11.png and 12.png) */
+.document-paper table.identity-table,
+.document-paper table[data-identity="true"] {
+  border: none !important;
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.document-paper table.identity-table thead,
+.document-paper table[data-identity="true"] thead {
+  display: none !important;
+}
+
+.document-paper table.identity-table th,
+.document-paper table.identity-table td,
+.document-paper table[data-identity="true"] th,
+.document-paper table[data-identity="true"] td {
+  border: none !important;
+  background-color: transparent !important;
+  padding: 2.5px 4px !important;
+  vertical-align: top !important;
+  font-size: 0.95rem !important;
+}
+
+.document-paper table.identity-table td:nth-child(1),
+.document-paper table[data-identity="true"] td:nth-child(1) {
+  width: 255px !important;
+  max-width: 32% !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  padding-right: 4px !important;
+  text-align: left !important;
+}
+
+.document-paper table.identity-table td:nth-child(2),
+.document-paper table[data-identity="true"] td:nth-child(2) {
+  width: 20px !important;
+  max-width: 25px !important;
+  text-align: center !important;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  font-weight: 600 !important;
+}
+
+.document-paper table.identity-table td:nth-child(3),
+.document-paper table[data-identity="true"] td:nth-child(3) {
+  width: auto !important;
+  text-align: left !important;
+  padding-left: 4px !important;
+  font-weight: normal !important;
+}
+
+.document-paper blockquote {
+  border-left: 3px solid #0284c7;
+  padding-left: 0.75rem;
+  margin: 0.75rem 0;
+  font-style: italic;
+  color: #475569;
+}
+
+.document-paper hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #94a3b8;
+}
+
+/* Print Specific Rules for perfect A4 page print */
+@media print {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 100% !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  #root,
+  main,
+  .document-preview-container,
+  .document-preview-scroll {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .grid,
+  .lg\:col-span-7 {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .document-paper {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 10.5pt !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Judul Rencana Pelaksanaan Pembelajaran Mendalam (RPPM) proporsional dan rapi pada cetak PDF */
+  .document-paper h1 {
+    font-size: 13pt !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+    margin-top: 0 !important;
+    margin-bottom: 3pt !important;
+    line-height: 1.25 !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .document-paper h1 + h3,
+  .document-paper .doc-subtitle {
+    font-size: 11pt !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 12pt !important;
+    line-height: 1.25 !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .document-paper h2 {
+    font-size: 11.5pt !important;
+    font-weight: 700 !important;
+    margin-top: 12pt !important;
+    margin-bottom: 4pt !important;
+    padding-bottom: 2pt !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .document-paper h3 {
+    font-size: 11pt !important;
+    font-weight: 700 !important;
+    margin-top: 8pt !important;
+    margin-bottom: 3pt !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .document-paper p,
+  .document-paper li {
+    font-size: 10.5pt !important;
+    line-height: 1.45 !important;
+    margin-bottom: 4pt !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    hyphens: auto !important;
+  }
+
+  .document-paper ul,
+  .document-paper ol {
+    text-align: justify !important;
+    margin-bottom: 6pt !important;
+  }
+
+  .document-paper blockquote {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
+
+  .document-paper table {
+    margin-top: 6pt !important;
+    margin-bottom: 8pt !important;
+    page-break-inside: auto !important;
+    table-layout: fixed !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .document-paper tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+
+  .document-paper th,
+  .document-paper td {
+    padding: 3pt 5pt !important;
+    font-size: 8.8pt !important;
+    line-height: 1.3 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    box-sizing: border-box !important;
+  }
+
+  .document-paper table.rubric-table,
+  .document-paper table[data-rubric="true"],
+  .document-paper table.kisi-kisi-table,
+  .document-paper table[data-kisi="true"],
+  .document-paper table[data-columns="5"],
+  .document-paper table[data-columns="6"],
+  .document-paper table[data-columns="7"] {
+    font-size: 7.5pt !important;
+    line-height: 1.25 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  .document-paper table.rubric-table th,
+  .document-paper table.rubric-table td,
+  .document-paper table[data-rubric="true"] th,
+  .document-paper table[data-rubric="true"] td,
+  .document-paper table.kisi-kisi-table th,
+  .document-paper table.kisi-kisi-table td,
+  .document-paper table[data-kisi="true"] th,
+  .document-paper table[data-kisi="true"] td,
+  .document-paper table[data-columns="5"] th,
+  .document-paper table[data-columns="5"] td,
+  .document-paper table[data-columns="6"] th,
+  .document-paper table[data-columns="6"] td,
+  .document-paper table[data-columns="7"] th,
+  .document-paper table[data-columns="7"] td {
+    padding: 2.2pt 3.5pt !important;
+    font-size: 7.4pt !important;
+    line-height: 1.25 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    vertical-align: top !important;
+    box-sizing: border-box !important;
+  }
+
+  .document-paper table.rubric-table th,
+  .document-paper table[data-rubric="true"] th,
+  .document-paper table.kisi-kisi-table th,
+  .document-paper table[data-kisi="true"] th {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    font-weight: 700 !important;
+    border: 1px solid #334155 !important;
+  }
+
+  /* 7-column Kisi-Kisi matrix in print (Image 1) */
+  .document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(1),
+  .document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(1),
+  .document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(1),
+  .document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(1) {
+    width: 4.5% !important;
+    text-align: center !important;
+  }
+  .document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(2),
+  .document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(2),
+  .document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(2),
+  .document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(2) {
+    width: 23% !important;
+    text-align: left !important;
+  }
+  .document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(3),
+  .document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(3),
+  .document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(3),
+  .document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(3) {
+    width: 16% !important;
+    text-align: left !important;
+  }
+  .document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(4),
+  .document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(4),
+  .document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(4),
+  .document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(4) {
+    width: 34.5% !important;
+    text-align: left !important;
+  }
+  .document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(5),
+  .document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(5),
+  .document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(5),
+  .document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(5) {
+    width: 9% !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+  }
+  .document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(6),
+  .document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(6),
+  .document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(6),
+  .document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(6) {
+    width: 7.5% !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+  }
+  .document-paper table.kisi-kisi-table[data-columns="7"] th:nth-child(7),
+  .document-paper table.kisi-kisi-table[data-columns="7"] td:nth-child(7),
+  .document-paper table[data-kisi="true"][data-columns="7"] th:nth-child(7),
+  .document-paper table[data-kisi="true"][data-columns="7"] td:nth-child(7) {
+    width: 5.5% !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    color: #1e40af !important;
+  }
+
+  /* 6-column Rubric table in print (Image 2) */
+  .document-paper table.rubric-table[data-columns="6"] th:first-child,
+  .document-paper table.rubric-table[data-columns="6"] td:first-child,
+  .document-paper table[data-rubric="true"][data-columns="6"] th:first-child,
+  .document-paper table[data-rubric="true"][data-columns="6"] td:first-child {
+    width: 5% !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+  }
+  .document-paper table.rubric-table[data-columns="6"] th:nth-child(2),
+  .document-paper table.rubric-table[data-columns="6"] td:nth-child(2),
+  .document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(2),
+  .document-paper table[data-rubric="true"][data-columns="6"] td:nth-child(2) {
+    width: 23% !important;
+    text-align: left !important;
+    font-weight: 600 !important;
+  }
+  .document-paper table.rubric-table[data-columns="6"] th:nth-child(3),
+  .document-paper table.rubric-table[data-columns="6"] td:nth-child(3),
+  .document-paper table.rubric-table[data-columns="6"] th:nth-child(4),
+  .document-paper table.rubric-table[data-columns="6"] td:nth-child(4),
+  .document-paper table.rubric-table[data-columns="6"] th:nth-child(5),
+  .document-paper table.rubric-table[data-columns="6"] td:nth-child(5),
+  .document-paper table.rubric-table[data-columns="6"] th:nth-child(6),
+  .document-paper table.rubric-table[data-columns="6"] td:nth-child(6),
+  .document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(3),
+  .document-paper table[data-rubric="true"][data-columns="6"] td:nth-child(3),
+  .document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(4),
+  .document-paper table[data-rubric="true"][data-columns="6"] td:nth-child(4),
+  .document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(5),
+  .document-paper table[data-rubric="true"][data-columns="6"] td:nth-child(5),
+  .document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(6),
+  .document-paper table[data-rubric="true"][data-columns="6"] td:nth-child(6) {
+    width: 18% !important;
+    text-align: left !important;
+  }
+  .document-paper table.rubric-table[data-columns="6"] th:nth-child(3),
+  .document-paper table.rubric-table[data-columns="6"] th:nth-child(4),
+  .document-paper table.rubric-table[data-columns="6"] th:nth-child(5),
+  .document-paper table.rubric-table[data-columns="6"] th:nth-child(6),
+  .document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(3),
+  .document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(4),
+  .document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(5),
+  .document-paper table[data-rubric="true"][data-columns="6"] th:nth-child(6) {
+    text-align: center !important;
+  }
+
+  /* Tabel Soal Benar / Salah in print (A4) */
+  .document-paper table.benar-salah-table,
+  .document-paper table[data-benar-salah="true"] {
+    width: 100% !important;
+    font-size: 10pt !important;
+    margin-top: 6pt !important;
+    margin-bottom: 10pt !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  .document-paper table.benar-salah-table th,
+  .document-paper table.benar-salah-table td,
+  .document-paper table[data-benar-salah="true"] th,
+  .document-paper table[data-benar-salah="true"] td {
+    padding: 4.5pt 6pt !important;
+    font-size: 10pt !important;
+  }
+
+  .document-paper table.identity-table,
+  .document-paper table[data-identity="true"] {
+    margin-top: 4pt !important;
+    margin-bottom: 10pt !important;
+    page-break-inside: avoid !important;
+  }
+
+  .document-paper table.identity-table td,
+  .document-paper table[data-identity="true"] td {
+    font-size: 10.5pt !important;
+    padding: 1.5pt 3pt !important;
+  }
+
+  .document-paper table.signature-table,
+  .document-paper table[data-signature="true"],
+  .document-paper .signature-container,
+  .document-paper .signature-locked-section,
+  .signature-container,
+  .signature-locked-section {
+    margin-top: 18pt !important;
+    margin-bottom: 12pt !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    break-inside: avoid-page !important;
+    page-break-before: auto !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .document-paper .signature-container table,
+  .document-paper .signature-locked-section table,
+  .document-paper table.signature-table,
+  .document-paper table[data-signature="true"] {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    break-inside: avoid-page !important;
+    display: table !important;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: none !important;
+    border-width: 0 !important;
+  }
+
+  .document-paper .signature-container tr,
+  .document-paper .signature-locked-section tr,
+  .document-paper table.signature-table tr,
+  .document-paper table[data-signature="true"] tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    break-inside: avoid-page !important;
+    border: none !important;
+    border-width: 0 !important;
+    background-color: transparent !important;
+  }
+
+  .document-paper .signature-container th,
+  .document-paper .signature-container td,
+  .document-paper .signature-locked-section th,
+  .document-paper .signature-locked-section td,
+  .document-paper table.signature-table th,
+  .document-paper table.signature-table td,
+  .document-paper table[data-signature="true"] th,
+  .document-paper table[data-signature="true"] td {
+    font-size: 10.5pt !important;
+    padding: 1.5pt 3pt !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border: none !important;
+    border-width: 0 !important;
+    background-color: transparent !important;
+  }
+
+  .document-paper .signature-container td:first-child,
+  .document-paper table.signature-table td:first-child {
+    width: 50% !important;
+    text-align: left !important;
+    padding-left: 0 !important;
+    padding-right: 12pt !important;
+  }
+
+  .document-paper .signature-container td:last-child,
+  .document-paper table.signature-table td:last-child {
+    width: 50% !important;
+    text-align: left !important;
+    padding-left: 24pt !important;
+    padding-right: 0 !important;
+  }
+
+  .document-paper .signature-container hr,
+  .document-paper .signature-locked-section hr {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    margin-bottom: 12pt !important;
+  }
+
+  /* Hide edit cues and banners during print */
+  .document-body-section.is-editing-mode,
+  .document-soal-section.is-editing-mode {
+    outline: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .naskah-soal-page-section,
+  [data-section-soal="true"] {
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border: none !important;
+  }
+
+  .lock-indicator-badge,
+  .edit-mode-helper-banner {
+    display: none !important;
+  }
+
+  /* Prevent orphan headings on print & PDF */
+  h1, h2, h3, h4, [data-heading="true"] {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  /* Section page break rules for Assessments */
+  .section-naskah-soal,
+  [data-section-naskah="true"] {
+    page-break-before: always !important;
+    break-before: always !important;
+    break-before: page !important;
+  }
+
+  /* Bagian IV Kunci Jawaban & Pembahasan: Mengalir wajar tanpa memotong ke lembar baru jika lembar sebelumnya masih ada ruang kosong */
+  .section-kunci-jawaban,
+  [data-section-kunci="true"] {
+    page-break-before: auto !important;
+    break-before: auto !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    margin-top: 14pt !important;
+    margin-bottom: 6pt !important;
+  }
+
+  /* Soal Menjodohkan (Matching): Tabel 2 Kolom Seimbang (50% - 50%) */
+  .document-paper table.matching-table,
+  .document-paper table[data-matching="true"] {
+    table-layout: fixed !important;
+    width: 100% !important;
+  }
+
+  .document-paper table.matching-table th,
+  .document-paper table.matching-table td,
+  .document-paper table[data-matching="true"] th,
+  .document-paper table[data-matching="true"] td {
+    width: 50% !important;
+    max-width: 50% !important;
+    box-sizing: border-box !important;
+    padding: 3.5pt 5pt !important;
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    vertical-align: top !important;
+  }
+
+  .document-paper table.matching-table th:first-child,
+  .document-paper table.matching-table td:first-child,
+  .document-paper table[data-matching="true"] th:first-child,
+  .document-paper table[data-matching="true"] td:first-child {
+    width: 50% !important;
+    border-right: 1px solid #334155 !important;
+  }
+
+  .document-paper table.matching-table th:last-child,
+  .document-paper table.matching-table td:last-child,
+  .document-paper table[data-matching="true"] th:last-child,
+  .document-paper table[data-matching="true"] td:last-child {
+    width: 50% !important;
+  }
+
+  /* Tabel Pedoman Penskoran & Konversi Nilai Akhir */
+  .document-paper table.penskoran-table,
+  .document-paper table[data-penskoran="true"] {
+    table-layout: fixed !important;
+    width: 100% !important;
+  }
+
+  .document-paper table.penskoran-table th,
+  .document-paper table.penskoran-table td,
+  .document-paper table[data-penskoran="true"] th,
+  .document-paper table[data-penskoran="true"] td {
+    padding: 3pt 4.5pt !important;
+    font-size: 8.2pt !important;
+    line-height: 1.3 !important;
+    box-sizing: border-box !important;
+    vertical-align: top !important;
+  }
+
+  /* Kolom No: kompak & center */
+  .document-paper table.penskoran-table th:first-child,
+  .document-paper table.penskoran-table td:first-child,
+  .document-paper table[data-penskoran="true"] th:first-child,
+  .document-paper table[data-penskoran="true"] td:first-child {
+    text-align: center !important;
+    width: 8% !important;
+  }
+
+  /* Kolom Skor Maksimal: kompak, auto-fit, center, nowrap */
+  .document-paper table.penskoran-table th:last-child,
+  .document-paper table.penskoran-table td:last-child,
+  .document-paper table[data-penskoran="true"] th:last-child,
+  .document-paper table[data-penskoran="true"] td:last-child {
+    text-align: center !important;
+    white-space: nowrap !important;
+    width: 14% !important;
+    font-weight: 600 !important;
+  }
+
+  /* Khusus Dokumen LKPD: Jangan pernah ada pemaksaan pindah halaman untuk bagian Pedoman Penskoran atau konten lainnya */
+  .document-paper[data-doc-type="lkpd"] .section-kunci-jawaban,
+  .document-paper[data-doc-type="lkpd"] [data-section-kunci="true"],
+  .document-paper[data-doc-type="lkpd"] .section-naskah-soal,
+  .document-paper[data-doc-type="lkpd"] [data-section-naskah="true"],
+  .document-paper.document-type-lkpd .section-kunci-jawaban,
+  .document-paper.document-type-lkpd [data-section-kunci="true"],
+  .document-paper.document-type-lkpd .section-naskah-soal,
+  .document-paper.document-type-lkpd [data-section-naskah="true"],
+  .document-paper[data-doc-type="lkpd"] .pedoman-penskoran-lkpd,
+  .document-paper.document-type-lkpd .pedoman-penskoran-lkpd,
+  .document-paper[data-doc-type="lkpd"] [data-pedoman-lkpd="true"],
+  .document-paper.document-type-lkpd [data-pedoman-lkpd="true"],
+  .pedoman-penskoran-lkpd,
+  [data-pedoman-lkpd="true"] {
+    page-break-before: auto !important;
+    break-before: auto !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-top: 8pt !important;
+    margin-bottom: 3pt !important;
+  }
+
+  /* Table Row Protection: Prevent table rows from breaking in half across pages */
+  tr,
+  [data-table-row="true"] {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 20mm 15mm 20mm 15mm;
+  }
+}
+
+/* Direct Inline Document Editing Styles */
+.document-body-section.is-editing-mode,
+.document-soal-section.is-editing-mode {
+  outline: 2px dashed #f59e0b;
+  outline-offset: 4px;
+  background-color: rgba(254, 243, 199, 0.08);
+  border-radius: 6px;
+  padding: 6px;
+  transition: all 0.2s ease;
+}
+
+.document-body-section.is-editing-mode *:hover,
+.document-soal-section.is-editing-mode *:hover {
+  outline: 1px dashed rgba(245, 158, 11, 0.45);
+}
+
+.document-body-section.is-editing-mode *:focus,
+.document-soal-section.is-editing-mode *:focus {
+  outline: 2px solid #f59e0b !important;
+  background-color: #fffbeb !important;
+}
+
+.document-paper [contenteditable="true"] {
+  cursor: text;
+}
+
+.document-paper [contenteditable="false"] {
+  cursor: default;
+}
+
+/* Question Sheet Inserted & Pasted Image Styles */
+.soal-image-wrapper {
+  margin: 0.85rem auto !important;
+  text-align: center !important;
+  display: block !important;
+  user-select: none;
+}
+
+.soal-image-wrapper img {
+  max-width: 100% !important;
+  max-height: 18rem !important;
+  margin: 0 auto !important;
+  object-fit: contain !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid #cbd5e1 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+@media print {
+  .soal-image-wrapper {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin: 0.6rem auto !important;
+  }
+  .soal-image-wrapper img {
+    max-height: 15rem !important;
+    border-color: #94a3b8 !important;
+    box-shadow: none !important;
+  }
+
+  /* Visual stimulus block with image: clean display without helper banners or captions */
+  .visual-stimulus-wrapper.has-image {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-width: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0.5rem 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .visual-stimulus-wrapper .stimulus-header-bar,
+  .visual-stimulus-wrapper .stimulus-caption-box,
+  .visual-stimulus-wrapper [data-stimulus-header="true"],
+  .visual-stimulus-wrapper [data-stimulus-caption="true"],
+  .stimulus-header-bar,
+  .stimulus-caption-box,
+  [data-stimulus-header="true"],
+  [data-stimulus-caption="true"] {
+    display: none !important;
+  }
+
+  /* Jika soal memiliki indikator stimulus gambar namun dengan sengaja tidak diberikan gambar:
+     SEMBUNYIKAN TOTAL SELURUH BLOK STIMULUS DARI CETAKAN PDF DAN CETAKAN FISIK */
+  .visual-stimulus-wrapper.no-image,
+  .visual-stimulus-wrapper:not(.has-image),
+  .visual-stimulus-wrapper:not(:has(img)),
+  [data-stimulus-block="true"].no-image,
+  [data-stimulus-block="true"]:not(.has-image),
+  [data-stimulus-block="true"]:not(:has(img)),
+  .visual-chart-container.no-image,
+  .visual-chart-container:not(.has-image):not(:has(img)),
+  .inline-block.no-image,
+  .inline-block:not(.has-image):not(:has(img)) {
+    display: none !important;
+    visibility: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .visual-stimulus-wrapper.has-image .visual-image-display {
+    margin: 0.25rem auto !important;
+    padding: 0 !important;
+  }
+
+  .visual-stimulus-wrapper.has-image img {
+    border: none !important;
+    border-width: 0 !important;
+    box-shadow: none !important;
+    max-height: 16rem !important;
+  }
+
+  /* Reset screen scroll containers during print so all pages print completely */
+  html, body, #root, .min-h-screen, main {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    max-height: none !important;
+  }
+  .document-preview-container, .document-preview-scroll {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+
+

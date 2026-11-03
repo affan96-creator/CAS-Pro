@@ -457,7 +457,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onOpenLogo
 
         {/* Outer App Credential Footer */}
         <div className="text-center mt-2 text-[11px] text-slate-400">
-          <span>Created By : Fidhal Touna</span>
+          <span>Created By : Af-One86 </span>
         </div>
       </motion.div>
     </div>
